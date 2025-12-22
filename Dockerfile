@@ -2,8 +2,12 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Install Jupyter
-RUN pip install --no-cache-dir jupyter
+# A. Install Jupyter and dependencies (NVidia GPU-compatible PyTorch ~2GB)
+# RUN pip install --no-cache-dir jupyter torch numpy
+
+# OR B. Install Jupyter and dependencies (CPU-only PyTorch)
+RUN pip install --no-cache-dir jupyter numpy
+RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
 # Copy notebook files
 COPY . .
