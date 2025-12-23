@@ -6,7 +6,7 @@ WORKDIR /app
 # RUN pip install --no-cache-dir jupyter torch numpy
 
 # OR B. Install Jupyter and dependencies (CPU-only PyTorch)
-RUN pip install --no-cache-dir jupyter numpy
+RUN pip install --no-cache-dir jupyter numpy matplotlib
 RUN pip install --no-cache-dir torch --index-url https://download.pytorch.org/whl/cpu
 
 # Copy notebook files
